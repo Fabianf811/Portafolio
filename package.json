@@ -1,0 +1,38 @@
+{
+  "name": "portafolio",
+  "version": "1.0.0",
+  "description": "This is my portfolio built with HTML, Css, js, node.js, express.js and typescript",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node lib/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabianf811/Portafolio.git"
+  },
+  "keywords": [
+    "Express",
+    "JavaScript",
+    "Node",
+    "TypeScript",
+    "Postgres",
+    "HTML",
+    "CSS",
+    "TalentoTech"
+  ],
+  "author": "Fabian Fernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fabianf811/Portafolio/issues"
+  },
+  "homepage": "https://github.com/Fabianf811/Portafolio#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tslint": "^5.20.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
