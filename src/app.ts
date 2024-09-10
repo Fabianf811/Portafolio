@@ -1,6 +1,5 @@
 import express, { Router } from "express";
-import pool from "./database/db_connect";
-import { getClientes } from "./controllers/clientes_controller";
+import { getClientes, getClientesById } from "./controllers/clientes_controller";
 
 require('dotenv').config();
 
@@ -10,13 +9,7 @@ const port = process.env.PORT;
 const clientesRoutes = Router();
 
 clientesRoutes.get('/clientes', getClientes);
-
-/*app.get('/', async (req, res) => {
-    const query = 'select * from clientes;';
-    const response = await pool.query(query);
-    console.log(response);
-    res.send('Hola Mundo - Soy Fabian Fernandez');
-}); */
+clientesRoutes.get('/clientes/:id', getClientesById);
 
 app.use(clientesRoutes);
 
