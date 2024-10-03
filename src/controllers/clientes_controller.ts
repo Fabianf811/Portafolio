@@ -122,3 +122,54 @@ export const updateClientes = async (req: Request, res: Response): Promise<Respo
         return res.status(500).json('Internal Server Error');
     }
 };
+
+/**
+ * Create cliente y consulta
+ * @param req 
+ * @param res 
+ * @returns 
+ */
+
+export const createClienteConsulta = async (req: Request, res: Response): Promise<Response> => {
+    const { nombre, apellido, email, telefono, empresa, cargo, servicio, consulta } = req.body;
+
+    if (!nombre || !apellido || !email || !telefono || !empresa || !cargo || !servicio || !consulta) {
+        return res.status(400).json('Todos los campos son requeridos.');
+    }
+
+    try {
+        // Inserta el cliente en la tabla 'clientes' y devuelve el 'id_cliente'
+        const clienteResult = await pool.query(
+            'INSERT INTO clientes (nombre, apellido, email, telefono, empresa, cargo) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id_cliente',
+            [nombre, apellido, email, telefono, empresa, cargo]
+        );
+        const id_cliente = clienteResult.rows[0].id_cliente;
+
+        // Inserta la consulta en la tabla 'consultas' vinculada con 'cliente_id'
+        await pool.query(
+            'INSERT INTO consultas (servicio, consulta, cliente_id) VALUES ($1, $2, $3)',
+            [servicio, consulta, id_cliente]
+        );
+
+        return res.status(201).json({
+            message: 'Cliente y consulta creados exitosamente',
+            cliente: {
+                id_cliente,
+                nombre,
+                apellido,
+                email,
+                telefono,
+                empresa,
+                cargo
+            },
+            consulta: {
+                servicio,
+                consulta,
+                cliente_id: id_cliente
+            }
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Error interno del servidor');
+    }
+};
