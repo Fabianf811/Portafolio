@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Query, QueryResult } from "pg";
 import jwt from "jsonwebtoken";
 import pool from "../database/db_connect";
 
@@ -35,5 +36,16 @@ export const createUser = async (req: Request, res: Response): Promise<Response>
         }
     } else {
         return res.status(400).json('Daño en el servidor');
+    }
+};
+
+
+export const getUsuarios = async (req: Request, res:Response): Promise<Response> =>{
+    try {
+        const response: QueryResult = await pool.query('SELECT * FROM usuarios;');
+        return res.status(200).json(response.rows);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Internal Server Error');
     }
 };

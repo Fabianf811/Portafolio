@@ -173,3 +173,13 @@ export const createClienteConsulta = async (req: Request, res: Response): Promis
         return res.status(500).json('Error interno del servidor');
     }
 };
+
+export const getConsultas = async (req: Request, res:Response): Promise<Response> =>{
+    try {
+        const response: QueryResult = await pool.query('SELECT * FROM consultas;');
+        return res.status(200).json(response.rows);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Internal Server Error');
+    }
+};

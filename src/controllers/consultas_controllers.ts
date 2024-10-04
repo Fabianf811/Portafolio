@@ -25,3 +25,6 @@ export const createConsultas = async (req: Request, res: Response): Promise<Resp
         return res.status(400).json('Faltan datos en la solicitud');
     }
 };
+
+
+
