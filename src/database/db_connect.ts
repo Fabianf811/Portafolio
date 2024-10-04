@@ -1,6 +1,8 @@
 import {Pool} from "pg";
 require('dotenv').config();
 
+console.log(process.env.PRODUCTION);
+
 let pool: Pool;
 
 if (process.env.PRODUCTION) {
