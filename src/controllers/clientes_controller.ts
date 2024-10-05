@@ -137,19 +137,24 @@ export const createClienteConsulta = async (req: Request, res: Response): Promis
         return res.status(400).json('Todos los campos son requeridos.');
     }
 
+    const client = await pool.connect();
     try {
+        await client.query('BEGIN');
+
         // Inserta el cliente en la tabla 'clientes' y devuelve el 'id_cliente'
-        const clienteResult = await pool.query(
+        const clienteResult = await client.query(
             'INSERT INTO clientes (nombre, apellido, email, telefono, empresa, cargo) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id_cliente',
             [nombre, apellido, email, telefono, empresa, cargo]
         );
         const id_cliente = clienteResult.rows[0].id_cliente;
 
         // Inserta la consulta en la tabla 'consultas' vinculada con 'cliente_id'
-        await pool.query(
+        await client.query(
             'INSERT INTO consultas (servicio, consulta, cliente_id) VALUES ($1, $2, $3)',
             [servicio, consulta, id_cliente]
         );
+
+        await client.query('COMMIT');
 
         return res.status(201).json({
             message: 'Cliente y consulta creados exitosamente',
@@ -169,10 +174,14 @@ export const createClienteConsulta = async (req: Request, res: Response): Promis
             }
         });
     } catch (error) {
+        await client.query('ROLLBACK');
         console.error(error);
         return res.status(500).json('Error interno del servidor');
+    } finally {
+        client.release();
     }
 };
+
 
 export const getConsultas = async (req: Request, res:Response): Promise<Response> =>{
     try {
