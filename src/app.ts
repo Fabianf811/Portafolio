@@ -19,7 +19,9 @@ app.use(errorHandler);
 app.use(clientesRoutes);
 app.use(usuariosRoutes);
 app.use(consultasRoutes);
-app.use(createClienteConsulta)
+/*app.use(createClienteConsulta)
+app.use(getClienteConsulta)*/
+
 
 app.listen(port, () =>{
     console.log(`Example app listening on port ${port}`) 

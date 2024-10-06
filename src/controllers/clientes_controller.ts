@@ -183,6 +183,25 @@ export const createClienteConsulta = async (req: Request, res: Response): Promis
 };
 
 
+export const getClienteConsulta = async (req: Request, res: Response): Promise<Response> => {
+    try {
+        // Consulta que une la tabla 'clientes' con 'consultas'
+        const result = await pool.query(`
+            SELECT c.id_cliente, c.nombre, c.apellido, c.email, c.telefono, c.empresa, c.cargo, con.servicio, con.consulta 
+            FROM clientes c
+            JOIN consultas con ON c.id_cliente = con.cliente_id
+        `);
+
+        // Devolver los resultados en formato JSON
+        return res.status(200).json(result.rows);
+    } catch (error) {
+        console.error('Error al obtener los clientes y consultas:', error);
+        return res.status(500).json('Error interno del servidor');
+    }
+};
+
+
+
 export const getConsultas = async (req: Request, res:Response): Promise<Response> =>{
     try {
         const response: QueryResult = await pool.query('SELECT * FROM consultas;');

@@ -4,8 +4,7 @@
   "description": "This is my portfolio built with HTML, Css, js, node.js, express.js and typescript",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node lib/app.js",
+    "start": "tsc && node lib/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
