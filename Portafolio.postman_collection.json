@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "c6b81ab5-241c-4bb5-a27a-c31375b337ff",
+		"name": "Portafolio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38225855"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Get Clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjYwNTYzNDQsImV4cCI6MTcyNjA1OTk0NH0.rw28HcCf5jZHBC9CH9ZzK-5I8qpkJyDTtpQ8roITMUo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clientes by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjYwNTYzNDQsImV4cCI6MTcyNjA1OTk0NH0.rw28HcCf5jZHBC9CH9ZzK-5I8qpkJyDTtpQ8roITMUo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/clientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"clientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Clientes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"\",\n    \"apellido\":\"\",\n    \"email\":\"\",\n    \"telefono\":\"\",\n    \"empresa\":\"\",\n    \"cargo\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/createClientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"createClientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Clientes",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\":\"Fernanda\",\n    \"apellido\":\"Fernandez\",\n    \"email\":\"katherynne@hotmail.com\",\n    \"telefono\":\"3224326754\",\n    \"empresa\":\"ingenieria ltda\",\n    \"cargo\":\"ingeniera\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/updateClientes/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"updateClientes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Clientes",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MjYwNTYzNDQsImV4cCI6MTcyNjA1OTk0NH0.rw28HcCf5jZHBC9CH9ZzK-5I8qpkJyDTtpQ8roITMUo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/deleteClientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteClientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRmFiaWFuIEZlcm5hbmRleiIsImlhdCI6MTcyNzk5Njk3NCwiZXhwIjoxNzI4MDAwNTc0fQ.fQDaKNygHSasHBSCimS2Nr0Q03asya-0227V15EBX3Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre_usuario\": \"carlos\",\n    \"password\": \"12345\",\n    \"email\": \"carlos@hotmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Api Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre_usuario\": \"ivan\",\n    \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultas",
+			"item": [
+				{
+					"name": "Get Consultas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"followAuthorizationHeader": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiRmFiaWFuIEZlcm5hbmRleiIsImlhdCI6MTcyNzk5Njk3NCwiZXhwIjoxNzI4MDAwNTc0fQ.fQDaKNygHSasHBSCimS2Nr0Q03asya-0227V15EBX3Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/consultas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"consultas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Consulta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"servicio\": \"desarrollador web\",\n    \"consulta\": \"quiero una cotizacion\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/createconsulta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"createconsulta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente Consulta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"perro\",\n  \"apellido\": \"Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"telefono\": \"123456789\",\n  \"empresa\": \"Tech Corp\",\n  \"cargo\": \"Desarrollador\",\n  \"servicio\": \"Mobile App Development\",\n  \"consulta\": \"Quiero desarrollar una app móvil\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/createClienteConsulta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"createClienteConsulta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Cliente Consulta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getClienteConsulta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getClienteConsulta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

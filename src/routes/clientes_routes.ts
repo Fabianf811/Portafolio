@@ -5,9 +5,9 @@ import { createClienteConsulta, createClientes, deleteClientes, getClientes, get
 export const clientesRoutes = Router();
 
 clientesRoutes.get('/clientes', getClientes);
-clientesRoutes.get('/clientes/:id',autenticateToken, getClientesById);
+clientesRoutes.get('/clientes/:id', getClientesById);
 clientesRoutes.post('/createClientes',createClientes);
-clientesRoutes.delete('/deleteClientes/:id',autenticateToken, deleteClientes);
+clientesRoutes.delete('/deleteClientes/:id', deleteClientes);
 clientesRoutes.put('/updateClientes/:id', updateClientes);
 // Ruta para crear cliente y consulta
 clientesRoutes.post('/createClienteConsulta', createClienteConsulta);
