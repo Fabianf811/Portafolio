@@ -39,11 +39,25 @@ export const createUser = async (req: Request, res: Response): Promise<Response>
     }
 };
 
-
 export const getUsuarios = async (req: Request, res:Response): Promise<Response> =>{
     try {
         const response: QueryResult = await pool.query('SELECT * FROM usuarios;');
         return res.status(200).json(response.rows);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json('Internal Server Error');
+    }
+};
+
+export const deleteUsuarios = async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;  
+    try {
+        const queryResult: QueryResult = await pool.query('DELETE FROM usuarios WHERE id = $1', [id]);
+        if (queryResult?.rowCount && queryResult.rowCount > 0) {
+            return res.status(200).json({ message: 'User Deleted Successfully' });
+        } else {
+            return res.status(404).json({ message: 'User Not Found' });
+        }
     } catch (error) {
         console.error(error);
         return res.status(500).json('Internal Server Error');
