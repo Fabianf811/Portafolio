@@ -2,7 +2,7 @@
   "name": "portafolio",
   "version": "1.0.0",
   "description": "This is my portfolio built with HTML, Css, js, node.js, express.js and typescript",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "tsc",
     "start": "node lib/app.js",
